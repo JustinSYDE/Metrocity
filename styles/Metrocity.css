@@ -1,0 +1,233 @@
+@charset "utf-8";
+#wrapper {
+	max-width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFFFFF;
+}
+#header {
+	font-style: normal;
+	font-weight: 400;
+	font-family: lobster;
+	color: #B61A1D;
+	font-size: xx-large;
+	padding-top: 10px;
+	background-color: #FFFFFF;
+	padding-bottom: 10px;
+	z-index: 0;
+	text-align: center;
+	height: 10px;
+}
+
+#banner {
+	position: relative;
+	width: 100%;
+	z-index: 0;
+	float: left;
+}
+body {
+	background-image: url(../images/3192141-667754-seamless-transports-pattern-wallpaper.jpg);
+
+
+
+
+
+
+}
+p {
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+h1 {
+	font-style: normal;
+	font-weight: 400;
+	font-family: lobster;
+}
+
+#about {
+	z-index: 1;
+	width: 14%;
+	background-color: #66CCFF;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	position: relative;
+	top: -510px;
+	opacity: 0.9;
+	float: left;
+	font-style: italic;
+}
+#calculator {
+	float: left;
+	position: absolute;
+	top: 595px;
+	width: 1000px;
+}
+
+#menu {
+	background-color: #FFFFFF;
+	width: 100%;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	font-style: italic;
+	text-align: center;
+	float: left;
+	position: relative;
+	top: -23px;
+	padding-bottom: 50px;
+	height: 600px;
+}
+#menu .ui-accordion-content {
+	color: #777;
+	text-align: left;
+	width: 100%;
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+	border-color: #FFFFFF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 15pt;
+	position: relative;
+	left: 55px;
+}
+#menu .ui-accordion-content>* {
+	text-align: left;
+	position: relative;
+	left: 55px;
+}
+#menu .ui-accordion-content:nth-of-type(3) {
+	height: 170px;
+}
+
+#menu .ui-accordion-header {
+	font-size: 16pt;
+	width: 90%;
+	padding-bottom: 10px;
+	color: #000000;
+	padding-top: 10px;
+	left: 55px;
+	position: relative;
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+
+#menu .ui-accordion-header:first-of-type {
+	background-color: #F9F56F;
+	background-image: url(-moz-linear);
+}
+
+
+#menu .ui-accordion-header:nth-of-type(3) {
+	background-color: #FD726B;
+	background-image: url(-moz-linear-);
+}
+
+
+#menu .ui-accordion-header:nth-of-type(2) {
+	background-color: #60C9A1;
+	background-image: url(-moz-linear-);
+}
+
+#menu .ui-accordion-header:nth-of-type(4) {
+	background-color: #84A77F;
+	background-image: url(-moz-linear-);
+}
+#header2 {
+	background-color: #FFFFFF;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	position: relative;
+	float: left;
+	width: 100%;
+}
+footer {
+	background-color: #FFFFFF;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	color: #777777;
+	text-align: center;
+	padding-bottom: 20px;
+	z-index: 0;
+	position: relative;
+	top: -100px;
+	clear: left;
+}
+#inputbox {
+	position: relative;
+	top: 10px;
+	float: left;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	color: #ADADAD;
+	font-style: italic;
+	border-style: dashed;
+}
+#button {
+	float: left;
+	position: relative;
+	top: 10px;
+	left: 10px;
+	font-style: italic;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	border-style: dashed;
+	border-color: #ADADAD;
+	background-color: #FFFFFF;
+	color: #ADADAD;
+}
+#confirm_button {
+	color: #ADADAD;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	font-style: italic;
+	border-color: #C4C4C4;
+	border-style: dashed;
+	background-color: #FFFFFF;
+	position: relative;
+	top: 20px;
+	left: 370px;
+}
+#restart {
+	width: 120px;
+	height: 50px;
+	clear: both;
+	color: #ADADAD;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	text-align: center;
+	border-color: #969696;
+	border-style: dashed;
+	background-color: #FFFFFF;
+	position: relative;
+	font-size: x-large;
+	top: 50px;
+	float: left;
+}
+#facebook {
+	z-index: 1;
+	position: relative;
+	top: -10px;
+	left: 850px;
+}
+#twitter {
+	position: relative;
+	z-index: 1;
+	top: -10px;
+	left: 850px;
+}
+#pinterest {
+	position: relative;
+	z-index: 1;
+	top: -10px;
+	left: 850px;
+}
+#google {
+	position: relative;
+	left: 850px;
+	top: -10px;
+}
+#download {
+	position: relative;
+	top: -100px;
+	width: 20%;
+	left: 750px;
+	z-index: 1;
+}
+.social {
+	opacity: 0.75;
+}
