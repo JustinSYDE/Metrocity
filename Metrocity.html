@@ -40,6 +40,14 @@
 		{
 			$(this).fadeTo("fast", 0.75);
 		});
+		
+		$(function() 
+		{
+    		$("form").submit(function() 
+			{ 
+				return false; 
+			});
+		});
 	});
 </script>
    
@@ -49,7 +57,7 @@
 	var frequency = 0;
 	var month = 0;
 	
-	//Function: reads which rider the user is: infant, child, student, post-secondary student, etc.
+	//Function: reads which rider the user is: infant, child, student, post-secondary student, etc.	
 	function getRider(frm)
 	{
 		for (i=0; i<frm.rider.length; i++)
