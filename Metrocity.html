@@ -79,12 +79,13 @@ This file contains the HTML and javascript for the website.
 			{
 				if (frm.rider[i].value == "infant")
 				{
-					alert("Babies get to ride for free. Screw the system.");
+					$('#rider_error').html("Babies get to ride for free, babe. Please select a different rider.");
 				}
 				
 				else
 				{
 					rider = frm.rider[i].value;
+					$('#rider_error').html("");
 					$('#frequency_header').click();
 				}
 			}
@@ -97,17 +98,20 @@ This file contains the HTML and javascript for the website.
 		if (inputbox.value>0)
 		{
 			frequency=inputbox.value;
+			$('#frequency_error').html(" ");
 			$('#month_header').click();
 		}
 		
 		else if (inputbox.value==0)
 		{
-			alert("Why are you here if you don't take the TTC?");
+			$('#frequency_error').html("Why are you here if you don't take the TTC?");
+			frequency=-1; //Invalid answer, user will get error message at result page
 		}
 		
 		else 
 		{
-			alert("Sorry, we couldn't understand that. Please try again!");
+			$('#frequency_error').html("Sorry, we couldn't understand that. Please try again!");
+			frequency=-1; //Invalid answer, user will get error message at result page
 		}
 		
 	}
@@ -129,7 +133,7 @@ This file contains the HTML and javascript for the website.
 	
 	//Function: returns the final answer to the user - metropass or tokens
 	function answer(frequency, limit)
-	{
+	{		
 		if (frequency>=limit)
 		{	
 			$('#result').html("We recommend you get a <strong>MetroPass</strong>!");
@@ -154,7 +158,7 @@ This file contains the HTML and javascript for the website.
 				break;
 			}
 			
-			case "post_student":
+			case "student or senior":
 			{
 				answer(frequency, 39);
 				break;
@@ -166,21 +170,20 @@ This file contains the HTML and javascript for the website.
 				break;
 			}
 			
-			case "child":
-			{
-				$('#result').html("You don't have a choice: tickets.");
-				break;
-			}
-			
 			case "infant":
 			{
-				$('#result').html("Again?! Like we said, babies ride for free.");
+				$('#result').html("Sorry, you might have enterred some invalid information. Please try again.");
+				break;
+			}
+			case "child":
+			{
+				$('#result').html("You don't have a choice: <strong>child tickets</strong>.");
 				break;
 			}
 			
 			default:
 			{
-				$('#result').html("Sorry. You might have input some invalid information. Please try again.");
+				$('#result').html("Please review your answers, you might have input some invalid information or missed a section.");
 			}
 		}
 	}
@@ -216,6 +219,8 @@ This file contains the HTML and javascript for the website.
 	function resetText()
 	{
 		document.getElementById("inputbox").value="e.g. 7";
+		$('#rider_error').html("");
+		$('#frequency_error').html("");
 	}
 	
 </script>  
@@ -250,11 +255,13 @@ This file contains the HTML and javascript for the website.
                             	<td><input type="radio" id="radio" name="rider" value="infant" onClick="getRider(this.form)"/>Baby</td>
                             	<td><input type="radio" id="radio" name="rider" value="child" onClick="getRider(this.form)"/>Child</td>
                                 <td><input type="radio" id="radio" name="rider" value="student" onClick="getRider(this.form)"/>Student or Senior</td>
-                                <td><input type="radio" id="radio" name="rider" value="post_student" onClick="getRider(this.form)"/>Post-Secondary Student</td>
+                                <td><input type="radio" id="radio" name="rider" value="student or senior" onClick="getRider(this.form)"/>Post-Secondary Student</td>
                                 <td><input type="radio" id="radio" name="rider" value="adult" onClick="getRider(this.form)"/>Adult</td>
                             </tr>
                         </table>
                     </form>
+                    
+                    <div id="rider_error"></div>
                 </div>
             <h3 id="frequency_header">Frequency of travel</h3>
                 <div>
@@ -263,6 +270,8 @@ This file contains the HTML and javascript for the website.
 <INPUT TYPE="text" id="inputbox" class="button" NAME="inputbox" VALUE="e.g. 7" onfocus="if(this.value == 'e.g. 7') {this.value=''}" onblur="if(this.value == ''){this.value ='e.g. 7'}"/>
 <INPUT TYPE="button" id="button" class="button" NAME="button" value="Go" onClick="getFrequency(this.form)"/>
 </FORM>
+
+<div id="frequency_error"></div>
                 </div>
             <h3 id="month_header">Month of the year</h3>
             	<div>
@@ -285,17 +294,26 @@ This file contains the HTML and javascript for the website.
                             </tr>
                         </table>
                     </form>
-                    
                 </div>
             <h3 id="result_header">Result</h3>
                 <div>
-                    <p id="result">No need to rush... the bus isn't going anywhere!</p>
+                    <p id="result">No need to rush. This bus isn't going anywhere! Be sure to fill in all of the required fields.</p>
+               
                      <INPUT TYPE="button" id="restart" class="button" NAME="restart" value="Try Again!" onClick="restart()"/>
 </FORM>
                 </div>
                
         </div>
         
+  <div id="FAQ">
+  	<h1 id="FAQ_heading">Frequently Asked Questions</h1>
+    <p>Q: I'm getting weird unexpected answers after the first attempt.</p>
+    <p style="font-style: italic">A: If you would like to repeat the flow, be sure to click the 'Try Again!' button in the 'Result' tab before trying again.</p>
+    <pstyle="font-style: italic">Q: Where's the android app? I'm waiting and I need it!</p>
+    <p>A: Justin has a full-time job and is working as fast as he can to get the app up on the market. You can help by donating - <strong>now accepting VISA and Mastercard</strong>.</p>
+    <p></p>
+  </div>
+  
   <a href="https://play.google.com/store"><img class="social" id="download" src="images/download.jpg"/></a>
   <footer>&copy;Copyright 2013 Justin Wong</footer>
 </div>
