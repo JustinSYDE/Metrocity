@@ -24,7 +24,7 @@ This file contains the HTML and javascript for the website.
       <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
       <script>
       $(function() {
-        $( "#menu" ).accordion();
+        $("#menu" ).accordion();
       });
       </script>
 
@@ -54,12 +54,9 @@ This file contains the HTML and javascript for the website.
 			$(this).fadeTo("fast", 0.75);
 		});
 		
-		$(function() 
-		{
-    		$("form").submit(function() 
-			{ 
-				return false; 
-			});
+		$("form").submit(function() 
+		{ 
+			return false; 
 		});
 	});
 </script>
@@ -69,6 +66,7 @@ This file contains the HTML and javascript for the website.
 	var rider = "";
 	var frequency = 0;
 	var month = 0;
+	var current_section=0;
 	
 	//Function: reads which rider the user is: infant, child, student, post-secondary student, etc.	
 	function getRider(frm)
@@ -80,12 +78,14 @@ This file contains the HTML and javascript for the website.
 				if (frm.rider[i].value == "infant")
 				{
 					$('#rider_error').html("Babies get to ride for free, babe. Please select a different rider.");
+					rider = "";
 				}
 				
 				else
 				{
 					rider = frm.rider[i].value;
 					$('#rider_error').html("");
+					$('#menu').accordion('enable');
 					$('#frequency_header').click();
 				}
 			}
@@ -99,19 +99,20 @@ This file contains the HTML and javascript for the website.
 		{
 			frequency=inputbox.value;
 			$('#frequency_error').html(" ");
+			$('#menu').accordion('enable');
 			$('#month_header').click();
 		}
 		
 		else if (inputbox.value==0)
 		{
 			$('#frequency_error').html("Why are you here if you don't take the TTC?");
-			frequency=-1; //Invalid answer, user will get error message at result page
+			frequency=""; //Invalid answer, user will get error message at result page
 		}
 		
 		else 
 		{
 			$('#frequency_error').html("Sorry, we couldn't understand that. Please try again!");
-			frequency=-1; //Invalid answer, user will get error message at result page
+			frequency=""; //Invalid answer, user will get error message at result page
 		}
 		
 	}
@@ -124,6 +125,7 @@ This file contains the HTML and javascript for the website.
 			if (frm.month[i].checked)
 			{
 				month = frm.month[i].value;
+				$('#menu').accordion('enable');
 				$('#result_header').click();
 			}
 		}
@@ -132,16 +134,25 @@ This file contains the HTML and javascript for the website.
 	}
 	
 	//Function: returns the final answer to the user - metropass or tokens
-	function answer(frequency, limit)
+	function answer(frequency, limit, metroCost, fareCost)
 	{		
+	
+		var moneySaved = 0;
+		
 		if (frequency>=limit)
 		{	
-			$('#result').html("We recommend you get a <strong>MetroPass</strong>!");
+			moneySaved = Math.ceil((frequency*fareCost) - metroCost);
+			
+			$('#result').html("We recommend you get a <strong>MetroPass</strong>!"); 
+			$('#moneySaved').html("You will save roughly $" + moneySaved + "!");
 		}
 		
 		else
 		{
+			moneySaved = Math.ceil(metroCost - (frequency*fareCost));
+			
 			$('#result').html("We recommend you stick with <strong>tickets or tokens</strong> - even if Metropasses are cooler.");
+			$('#moneySaved').html("You will save roughly $" + moneySaved + "!");
 		}
 	}
 	
@@ -154,30 +165,25 @@ This file contains the HTML and javascript for the website.
 		{
 			case "adult":
 			{
-				answer(frequency, 49);
+				answer(frequency, 49, 133.75, 2.70);
 				break;
 			}
 			
 			case "student or senior":
 			{
-				answer(frequency, 39);
+				answer(frequency, 58, 108.00, 1.85);
 				break;
 			}
 			
 			case "student":
 			{
-				answer(frequency, 58);
+				answer(frequency, 39, 108.00, 2.70);
 				break;
 			}
 			
-			case "infant":
-			{
-				$('#result').html("Sorry, you might have enterred some invalid information. Please try again.");
-				break;
-			}
 			case "child":
 			{
-				$('#result').html("You don't have a choice: <strong>child tickets</strong>.");
+				$('#result').html("Sorry kid, children don't have a choice: <strong>child tickets</strong>.");
 				break;
 			}
 			
@@ -212,6 +218,7 @@ This file contains the HTML and javascript for the website.
 				}
 			}
 			
+			$('#menu').accordion('enable');
 			$('#rider_header').click();
 		}
 		
@@ -221,6 +228,8 @@ This file contains the HTML and javascript for the website.
 		document.getElementById("inputbox").value="e.g. 7";
 		$('#rider_error').html("");
 		$('#frequency_error').html("");
+		$('#result').html("");
+		$('#moneySaved').html("");
 	}
 	
 </script>  
@@ -239,14 +248,14 @@ This file contains the HTML and javascript for the website.
   	<h1>Metropass or Tokens?</h1>
     <p>*******************</p>
     <p>Don't know which to buy for the month?</p>
-    <p>Follow the instructions below to find out!</p>
+    <p>Follow the instructions below & find out!</p>
     <p>*******************</p>
   </article>
   
 <div id="calculator">
     <h1 id="header2" style="text-align: center">Let's get started!</h1>
         <div id="menu">
-            <h3 id="rider_header">TTC Rider</h3>
+            <h3 id="rider_header" onfocus="$('#menu').accordion('disable');">TTC Rider</h3>
                 <div>
                     <p>Which TTC rider are you?</p>
                     <form name="rider_form">
@@ -254,8 +263,8 @@ This file contains the HTML and javascript for the website.
                         	<tr>
                             	<td><input type="radio" id="radio" name="rider" value="infant" onClick="getRider(this.form)"/>Baby</td>
                             	<td><input type="radio" id="radio" name="rider" value="child" onClick="getRider(this.form)"/>Child</td>
-                                <td><input type="radio" id="radio" name="rider" value="student" onClick="getRider(this.form)"/>Student or Senior</td>
-                                <td><input type="radio" id="radio" name="rider" value="student or senior" onClick="getRider(this.form)"/>Post-Secondary Student</td>
+                                <td><input type="radio" id="radio" name="rider" value="student or senior" onClick="getRider(this.form)"/>Student or Senior</td>
+                                <td><input type="radio" id="radio" name="rider" value="student" onClick="getRider(this.form)"/>Post-Secondary Student</td>
                                 <td><input type="radio" id="radio" name="rider" value="adult" onClick="getRider(this.form)"/>Adult</td>
                             </tr>
                         </table>
@@ -263,7 +272,7 @@ This file contains the HTML and javascript for the website.
                     
                     <div id="rider_error"></div>
                 </div>
-            <h3 id="frequency_header">Frequency of travel</h3>
+            <h3 id="frequency_header" onfocus="$('#menu').accordion('disable');">Frequency of travel</h3>
                 <div>
                     <p>& how many TTC trips do you plan to make each week?</p>
                     <FORM id="frequency_form" ACTION="" METHOD="GET">
@@ -273,7 +282,7 @@ This file contains the HTML and javascript for the website.
 
 <div id="frequency_error"></div>
                 </div>
-            <h3 id="month_header">Month of the year</h3>
+            <h3 id="month_header" onfocus="$('#menu').accordion('disable');">Month of the year</h3>
             	<div>
                 	<p>Last question, for which month were you thinking of?</p>
                     <form name="month_form">
@@ -295,9 +304,10 @@ This file contains the HTML and javascript for the website.
                         </table>
                     </form>
                 </div>
-            <h3 id="result_header">Result</h3>
+            <h3 id="result_header" onfocus="$('#menu').accordion('disable');">Metropass or Tokens?</h3>
                 <div>
-                    <p id="result">No need to rush. This bus isn't going anywhere! Be sure to fill in all of the required fields.</p>
+                    <p id="result"></p>
+                 	<p id="moneySaved"></p>
                
                      <INPUT TYPE="button" id="restart" class="button" NAME="restart" value="Try Again!" onClick="restart()"/>
 </FORM>
@@ -307,10 +317,17 @@ This file contains the HTML and javascript for the website.
         
   <div id="FAQ">
   	<h1 id="FAQ_heading">Frequently Asked Questions</h1>
-    <p>Q: I'm getting weird unexpected answers after the first attempt.</p>
-    <p style="font-style: italic">A: If you would like to repeat the flow, be sure to click the 'Try Again!' button in the 'Result' tab before trying again.</p>
-    <pstyle="font-style: italic">Q: Where's the android app? I'm waiting and I need it!</p>
-    <p>A: Justin has a full-time job and is working as fast as he can to get the app up on the market. You can help by donating - <strong>now accepting VISA and Mastercard</strong>.</p>
+    <p style="font-style: italic">Q: What assumptions were made in these results?</p>
+    <p>A: This application assumes:</p>
+    <ul>
+    	<li>fare will be purhcased at the lowest rate. For instance, 7 tokens for $18.90 or 10 tokens for $18.50</li>
+        <li>"7 1/2 rides" a week is rounded up to "8 rides" a week
+        <li>post-secondary students will purchase post-secondary Metropasses at a discount cost of $108
+    </ul> 
+    <p style="font-style: italic">Q: Where's the android app? I'm waiting and I need it!</p>
+    <p>A: Justin has a full-time job and is working as fast as he can to get the app up on the market. Check out the progress of the <a class="social" href= "https://www.github.com/justinwong12337/Metrocity-Android-App">Metrocity Android App</a>!</p>
+    <p style="font-style: italic">Q: Will there be an iOS app for iPad and iPhone?</p>
+    <p>A: Unfortunately, the developer behind Metrocity cannot afford a Mac and so will not be able to develop for iOS. But you can help make the iOS version of Metrocity a reality by donating - <strong>now accepting VISA & Mastercard</strong>!</p>
     <p></p>
   </div>
   

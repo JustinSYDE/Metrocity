@@ -232,6 +232,8 @@ footer {
 }
 .social {
 	opacity: 0.75;
+	color: #84A77F;
+	text-decoration: none;
 }
 #frequency_error {
 	width: 80%;
@@ -259,7 +261,7 @@ footer {
 	padding-left: 10%;
 	padding-right: 10%;
 	color: #777777;
-	padding-bottom: 100px;
+	padding-bottom: 150px;
 	top: -26px;
 }
 #FAQ_heading {
