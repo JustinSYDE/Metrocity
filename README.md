@@ -18,6 +18,8 @@ A website and web application that helps TTC riders determine whether to purchas
 
 Instructions to run the program:
 
+Step 0. Download Metrocity.zip and unzip the files to your desktop.
+
 Step 1. Open Metrocity.html in a web browser.
 
 Step 2. Scroll down the page to the accordion and follow the site instructions.
