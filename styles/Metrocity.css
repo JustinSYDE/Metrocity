@@ -268,3 +268,13 @@ footer {
 	text-align: center;
 
 }
+#french {
+	color: #777777;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	position: relative;
+	z-index: 2;
+	left: 640px;
+	top: -20px;
+	font-size: large;
+}

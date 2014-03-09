@@ -1,5 +1,5 @@
 <!--
-Filename: Metrocity.html
+Filename: MetrocityFrench.html
 	
 I hereby declare that this code is a product 
 of my own efforts. This coded solution has
@@ -15,7 +15,7 @@ This file contains the HTML and javascript for the website.
 <html>
 <head>
 <meta charset="utf-8">
-<title>Metrocity</title>
+<title>MetrocityFrench</title>
 <link href="styles/Metrocity.css" rel="stylesheet" type="text/css">
 <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/lobster:n4:default.js" type="text/javascript"></script>
 
@@ -76,7 +76,7 @@ This file contains the HTML and javascript for the website.
 			{
 				if (frm.rider[i].value == "infant")
 				{
-					$('#rider_error').html("Babies get to ride for free, babe. Please select a different rider.");
+					$('#rider_error').html("Les bébés voyagent sans coût. Choisissiez un autre passager.");
 					rider = "";
 				}
 				
@@ -104,13 +104,13 @@ This file contains the HTML and javascript for the website.
 		
 		else if (inputbox.value==0)
 		{
-			$('#frequency_error').html("Why are you here if you don't take the TTC?");
+			$('#frequency_error').html("Pourquoi vous-êtes ici si vous n'utilisez pas le TTC?");
 			frequency=""; //Invalid answer, user will get error message at result page
 		}
 		
 		else 
 		{
-			$('#frequency_error').html("Sorry, we couldn't understand that. Please try again!");
+			$('#frequency_error').html("Désolé, nous ne pouvons pas comprendre ce que vous avez entré. Essayiez encore, s'il vous plaît!");
 			frequency=""; //Invalid answer, user will get error message at result page
 		}
 		
@@ -142,16 +142,16 @@ This file contains the HTML and javascript for the website.
 		{	
 			moneySaved = Math.ceil((frequency*fareCost) - metroCost);
 			
-			$('#result').html("We recommend you get a <strong>Metropass</strong>!"); 
-			$('#moneySaved').html("You will save roughly $" + moneySaved + "!");
+			$('#result').html("Nous suggérons que vous achétez un <strong>Metropass</strong>!"); 
+			$('#moneySaved').html("Vous allez faire gagner $" + moneySaved + "!");
 		}
 		
 		else
 		{
 			moneySaved = Math.ceil(metroCost - (frequency*fareCost));
 			
-			$('#result').html("We recommend you stick with <strong>tickets or tokens</strong> - even if Metropasses are cooler.");
-			$('#moneySaved').html("You will save roughly $" + moneySaved + "!");
+			$('#result').html("Nous suggérons que vous achétez des <strong>billets ou des jetons</strong> - même si les Metropass sont plus cools.");
+			$('#moneySaved').html("Vous allez faire gagner $" + moneySaved + "!");
 		}
 	}
 	
@@ -182,13 +182,13 @@ This file contains the HTML and javascript for the website.
 			
 			case "child":
 			{
-				$('#result').html("Sorry kid, children don't have a choice: <strong>child tickets</strong>.");
+				$('#result').html("Désolé ami, les enfants n'ont pas de choix:  <strong>les billets</strong>.");
 				break;
 			}
 			
 			default:
 			{
-				$('#result').html("Please review your answers, you might have input some invalid information.");
+				$('#result').html("Vérifier vos réponses, il se pourrait que vous avez entré des informations invalids.");
 			}
 		}
 	}
@@ -236,98 +236,98 @@ This file contains the HTML and javascript for the website.
 
 <body>
 <div id="wrapper">
-  <header id="header">Metrocity</header>
+  <header id="header">Métroville</header>
     <a href="http://wwww.facebook.com/metrocityapp"><img class="social" id="facebook" src="images/facebook_circle_color-512.png" width="30" height="30"/> </a>
   	<a href="http://www.twitter.com/metrocityapp"><img class="social" id="twitter" src="images/twitter_circle_color-512.png" width="30" height="30"/></a>
   	<a href="http://www.pinterest.com/metrocityapp"><img class="social" id="pinterest" src="images/pinterest-icon-280x280.png" width="30" height="30"/></a>
   	<a href="http://www.plus.google.com/metrocityapp"><img class="social" id="google" src="images/1383160351_google_circle_color.png" width="30" height="30"/></a>	
-    <a id="french" class="social" href="MetrocityFrench.html">Français | </a>
+    <a id="french" class="social" href="Metrocity.html">English | </a>
   <div id="banner">
   <img src="images/TTC-Streetcar.jpg" width="1000" height="547"  alt=""/> </div>
   <article id="about">
-  	<h1>Metropass or Tokens?</h1>
+  	<h1>Metropass ou Jetons?</h1>
     <p>*******************</p>
-    <p>Don't know which to buy for the month?</p>
-    <p>Follow the instructions below & find out!</p>
+    <p>Ne savez pas lequel acheter pour le mois?</p>
+    <p>Suivez les instructions en dessous!</p>
     <p>*******************</p>
   </article>
   
 <div id="calculator">
-    <h1 id="header2" style="text-align: center">Let's get started!</h1>
+    <h1 id="header2" style="text-align: center">Commençez!</h1>
         <div id="menu">
-            <h3 id="rider_header" onfocus="$('#menu').accordion('disable');">TTC Rider</h3>
+            <h3 id="rider_header" onfocus="$('#menu').accordion('disable');">Passager TTC</h3>
                 <div>
-                    <p>Which TTC rider are you?</p>
+                    <p>Vous êtes quel type de passager TTC?</p>
                     <form name="rider_form">
                     	<table border="0" Cellspacing = "0" Cellpadding = "6">
                         	<tr>
-                            	<td><input type="radio" id="radio" name="rider" value="infant" onClick="getRider(this.form)"/>Baby</td>
-                            	<td><input type="radio" id="radio" name="rider" value="child" onClick="getRider(this.form)"/>Child</td>
-                                <td><input type="radio" id="radio" name="rider" value="student or senior" onClick="getRider(this.form)"/>Student or Senior</td>
-                                <td><input type="radio" id="radio" name="rider" value="student" onClick="getRider(this.form)"/>Post-Secondary Student</td>
-                                <td><input type="radio" id="radio" name="rider" value="adult" onClick="getRider(this.form)"/>Adult</td>
+                            	<td><input type="radio" id="radio" name="rider" value="infant" onClick="getRider(this.form)"/>Bébé</td>
+                            	<td><input type="radio" id="radio" name="rider" value="child" onClick="getRider(this.form)"/>Enfant</td>
+                                <td><input type="radio" id="radio" name="rider" value="student or senior" onClick="getRider(this.form)"/>Étudiant ou Senior</td>
+                                <td><input type="radio" id="radio" name="rider" value="student" onClick="getRider(this.form)"/>Étudiant Postsecondaire</td>
+                                <td><input type="radio" id="radio" name="rider" value="adult" onClick="getRider(this.form)"/>Adulte</td>
                             </tr>
                         </table>
                     </form>
                     
                     <div id="rider_error"></div>
                 </div>
-            <h3 id="frequency_header" onfocus="$('#menu').accordion('disable');">Frequency of travel</h3>
+            <h3 id="frequency_header" onfocus="$('#menu').accordion('disable');">Fréquence de Voyage</h3>
                 <div>
-                    <p>& how many TTC trips do you plan to make each week?</p>
+                    <p>& combien des voyages TTC ferez-vous chaque semaine?</p>
                     <FORM id="frequency_form" ACTION="" METHOD="GET">
 <INPUT TYPE="text" id="inputbox" class="button" NAME="inputbox" VALUE="e.g. 7" onfocus="if(this.value == 'e.g. 7') {this.value=''}" onblur="if(this.value == ''){this.value ='e.g. 7'}"/>
-<INPUT TYPE="button" id="button" class="button" NAME="button" value="Go" onClick="getFrequency(this.form)"/>
+<INPUT TYPE="button" id="button" class="button" NAME="button" value="Allez" onClick="getFrequency(this.form)"/>
 </FORM>
 
 <div id="frequency_error"></div>
                 </div>
-            <h3 id="month_header" onfocus="$('#menu').accordion('disable');">Month of the year</h3>
+            <h3 id="month_header" onfocus="$('#menu').accordion('disable');">Mois de l'Année</h3>
             	<div>
-                	<p>Last question, for which month were you thinking of?</p>
+                	<p>Dernière question, pour quel mois voulez-vous acheter un Metropass ou des jetons?</p>
                     <form name="month_form">
                     	<table border="0" Cellspacing = "0" Cellpadding = "6">
                         	<tr>
                             	<td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Jan</td>
                             	<td><input type="radio" id="radio" name="month" value=28 onClick="getMonth(this.form)"/>Feb</td>
                                 <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Mar</td>
-                                <td><input type="radio" id="radio" name="month" value=30 onClick="getMonth(this.form)"/>Apr</td>
-                                <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>May</td>
-                                <td><input type="radio" id="radio" name="month" value=30 onClick="getMonth(this.form)"/>Jun</td>
-                            	<td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Jul</td>
-                                <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Aug</td>
+                                <td><input type="radio" id="radio" name="month" value=30 onClick="getMonth(this.form)"/>Avr</td>
+                                <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Mai</td>
+                                <td><input type="radio" id="radio" name="month" value=30 onClick="getMonth(this.form)"/>Juin</td>
+                            	<td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Jui</td>
+                                <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Aoû</td>
                                 <td><input type="radio" id="radio" name="month" value=30 onClick="getMonth(this.form)"/>Sep</td>
                                 <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Oct</td>
                                 <td><input type="radio" id="radio" name="month" value=30 onClick="getMonth(this.form)"/>Nov</td>
-                                <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Dec</td>
+                                <td><input type="radio" id="radio" name="month" value=31 onClick="getMonth(this.form)"/>Déc</td>
                             </tr>
                         </table>
                     </form>
                 </div>
-            <h3 id="result_header" onfocus="$('#menu').accordion('disable');">Metropass or Tokens?</h3>
+            <h3 id="result_header" onfocus="$('#menu').accordion('disable');">Metropass ou Jetons?</h3>
                 <div>
                     <p id="result"></p>
                  	<p id="moneySaved"></p>
                
-                     <INPUT TYPE="button" id="restart" class="button" NAME="restart" value="Try Again!" onClick="restart()"/>
+                     <INPUT TYPE="button" id="restart" class="button" NAME="restart" value="Réessayez!" onClick="restart()"/>
 </FORM>
                 </div>
                
         </div>
         
   <div id="FAQ">
-  	<h1 id="FAQ_heading">Frequently Asked Questions</h1>
-    <p style="font-style: italic">Q: What assumptions were used to get these results?</p>
-    <p>A: This application assumes:</p>
+  	<h1 id="FAQ_heading">Foire Aux Questions</h1>
+    <p style="font-style: italic">Q: Quelles suppositions sont utilisés pour arriver à ces resultats?</p>
+    <p>A: Cet application suppose:</p>
     <ul>
-    	<li>fare will be purhcased at the lowest rate. For instance, 7 tokens for $18.90 or 10 tickets for $18.50</li>
-        <li>"7 1/2 rides" a week is rounded up to "8 rides" a week
-        <li>post-secondary students will purchase post-secondary Metropasses at a discount cost of $108
+    	<li>prix de tickets, jetons, etc. seront achéter au coût bon marché. Par exeemple, 7 jetons pour $18,90 ou 10 billets pour $18,50</li>
+        <li>"7 1/2 voyages" chaque semaine est arrondi à "8 voyages" chaque semaine
+        <li>étudiants postsecondaires vont achéter les Metropass postsecondaires pour $108
     </ul> 
-    <p style="font-style: italic">Q: Where's the android app? I'm waiting and I need it!</p>
-    <p>A: The developer behind Metrocity has a full-time job and is working as fast as he can to get the app up on the market. Check out the progress of the <a class="social" href= "https://www.github.com/justinwong12337/Metrocity-Android-App">Metrocity Android App</a>!</p>
-    <p style="font-style: italic">Q: Will there be an iOS app for iPad and iPhone?</p>
-    <p>A: Unfortunately, the developer cannot afford a Mac and so will not be able to develop for iOS. But, by donating, you can help make the iOS version of Metrocity a reality - <strong>now accepting VISA & Mastercard</strong>!</p>
+    <p style="font-style: italic">Q: Où est l'application Android? J'attendant et je l'ai besoin!</p>
+    <p>A: Le développeur de Métroville a un emploi temps complet et il travaille aussi vite qu'il pourrait pour finir cet application Android. Visitiez le progrès de l'<a class="social" href= "https://www.github.com/justinwong12337/Metrocity-Android-App">Application Android Métroville</a>!</p>
+    <p style="font-style: italic">Q: Est-ce qu'il y aura un application iOS pour iPhone et iPad?</p>
+    <p>A: Malheureusement, le développeur n'a pas les moyens pour achéter un Mac, donc il ne peut pas développer pour iOS. Mais, si vous donnez un peu d'argent, vous pouvez aider faire la version iOS réele - <strong>on accepte le VISA & le Mastercard</strong>!</p>
     <p></p>
   </div>
   
