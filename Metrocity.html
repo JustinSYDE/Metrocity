@@ -32,6 +32,9 @@ This file contains the HTML and javascript for the website.
 <script language="javascript">
 	$(document).ready(function()
 	{
+		$("#about").hide();
+		$("#about").slideDown(1000);
+		
 		$('.button').mouseenter(function()
 		{
 			$(this).css("border-color", "#66ccff");
@@ -57,7 +60,7 @@ This file contains the HTML and javascript for the website.
 		$("form").submit(function() 
 		{ 
 			return false; 
-		});
+		});		
 	});
    
 <!--Javascript for the Metrocity calculations-->   
@@ -245,15 +248,17 @@ This file contains the HTML and javascript for the website.
   <div id="banner">
   <img src="images/TTC-Streetcar.jpg" width="1000" height="547"  alt=""/> </div>
   <article id="about">
-  	<h1>Metropass or Tokens?</h1>
-    <p>*******************</p>
-    <p>Don't know which to buy for the month?</p>
-    <p>Follow the instructions below & find out!</p>
-    <p>*******************</p>
+  	<p id="transfer">43 METROCITY</p>
+  	<h1 style="text-align: center">Metropass or Tokens?</h1>
+    <p></p>
+    <p style="text-align: center">Don't know which to buy for the month?</p>
+    <p style="text-align: center">Follow the instructions below & find out!</p>
+    <p></p>
+    <img id="ttcLogo" src="images/ttc logo.png"/>
   </article>
   
 <div id="calculator">
-    <h1 id="header2" style="text-align: center">Let's get started!</h1>
+    <h1 id="header2" style="text-align: center">Let's Get Started!</h1>
         <div id="menu">
             <h3 id="rider_header" onfocus="$('#menu').accordion('disable');">TTC Rider</h3>
                 <div>

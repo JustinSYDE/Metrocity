@@ -32,6 +32,9 @@ This file contains the HTML and javascript for the website.
 <script language="javascript">
 	$(document).ready(function()
 	{
+		$("#about").hide();
+		$("#about").slideDown(1000);
+		
 		$('.button').mouseenter(function()
 		{
 			$(this).css("border-color", "#66ccff");
@@ -245,11 +248,13 @@ This file contains the HTML and javascript for the website.
   <div id="banner">
   <img src="images/TTC-Streetcar.jpg" width="1000" height="547"  alt=""/> </div>
   <article id="about">
-  	<h1>Metropass ou Jetons?</h1>
-    <p>*******************</p>
-    <p>Ne savez pas lequel acheter pour le mois?</p>
-    <p>Suivez les instructions en dessous!</p>
-    <p>*******************</p>
+  	<p id="transfer">43 MÉTROVILLE</p>
+  	<h1 style="text-align: center">Metropass ou Jetons?</h1>
+    <p></p>
+    <p style="text-align: center">Ne savez pas lequel acheter pour le mois?</p>
+    <p style="text-align: center">Suiviez les instructions en dessous!</p>
+    <p></p>
+    <img id="ttcLogo" src="images/ttc logo.png"/>
   </article>
   
 <div id="calculator">
