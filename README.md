@@ -14,7 +14,7 @@ not been plagiarized from other sources and
 has not been plagiarized by others.
 ************************************************
 
-A website and web application that helps TTC riders determine whether to purchase a metropass or tokens.
+A website and web application that helps TTC riders manage their TTC finances.
 
 Instructions to run the program:
 
