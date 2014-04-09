@@ -14,7 +14,7 @@ not been plagiarized from other sources and
 has not been plagiarized by others.
 ************************************************
 
-A website and web application that helps TTC riders manage their TTC finances.
+A website and web application that helps TTC riders manage their TTC fares.
 
 Instructions to run the program:
 
