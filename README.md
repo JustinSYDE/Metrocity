@@ -6,7 +6,7 @@ Author: Justin Wong
 
 Written in: HTML, CSS, Javascript, jQuery
 
-Filename: Metrocity.hmtl
+Filename: Metrocity.html
 	
 I hereby declare that this code is a product 
 of my own efforts. This coded solution has
