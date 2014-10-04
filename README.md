@@ -31,3 +31,9 @@ Step 2. Scroll down the page to the accordion and follow the site instructions.
 	3) Select the radar button that matches the month for which you want to purchase a Metropass.
 
 Step 4. Press the 'Try Again' button to restart the flow.
+
+#Screenshot
+
+![](http://puu.sh/bZspT/6a01821b13.png)
+
+Enjoy!
