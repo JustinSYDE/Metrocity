@@ -34,6 +34,5 @@ Step 4. Press the 'Try Again' button to restart the flow.
 
 #Screenshot
 
-![](http://puu.sh/bZspT/6a01821b13.png)
-
+![](http://puu.sh/cDXmy/67c0017036.png)
 Enjoy!
